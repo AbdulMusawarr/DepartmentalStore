@@ -37,7 +37,7 @@ app.use(express.json());
 
 // Root Path for Group Info
 app.get("/", (req, res) => {
-  res.send("Group Info: Group Number, Group Members, Project Title: Distributed E-commerce System");
+  res.send("Group Info: Group Number, Group Members, Project Title: Departmental Store");
 });
 
 // Authentication Routes

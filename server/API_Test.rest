@@ -1,0 +1,230 @@
+
+### group info
+GET http://localhost:4000/
+###5000 server path root
+GET http://localhost:5000/
+
+
+### Register User
+POST  http://localhost:4000/api/auth/register
+Content-Type: application/json
+
+{
+  "userName": "testuser1",
+  "email": "testuser1@example.com",
+  "password": "password123"
+}
+
+
+### 
+
+# Login User
+POST http://localhost:4000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "testuser1@example.com",
+  "password": "password123"
+}
+
+
+###
+
+# Check Authentication Status (GET Request)
+GET http://localhost:4000/api/auth/check-auth
+Content-Type: application/json
+
+
+
+### 
+
+# Logout User
+POST http://localhost:4000/api/auth/logout
+Content-Type: application/json
+
+
+
+
+
+
+### Admin interface
+# Get All Orders for Admin
+
+GET http://localhost:5000/api/admin/orders/get
+Content-Type: application/json
+
+
+#### Get Order Details for Admin
+
+GET http://localhost:5000/api/admin/orders/details/67331f215ad0767389f9e23f
+Content-Type: application/json
+
+### Update Order Status
+
+PUT http://localhost:5000/api/admin/orders/update/67331f215ad0767389f9e23f
+Content-Type: application/json
+
+{
+  "orderStatus": "pending"
+}
+
+###Admin Product
+
+
+### Add New Product
+POST http://localhost:5000/api/admin/products/add
+Content-Type: application/json
+
+{
+  "name": "Sample Product",
+  "price": 29.99,
+  "description": "Sample product description",
+  "stock": 100
+}
+
+
+### Fetch All Products
+GET http://localhost:5000/api/admin/products/get
+Content-Type: application/json
+
+
+### Edit Product
+PUT http://localhost:5000/api/admin/products/edit/6736ca3b5464586392ade645
+Content-Type: application/json
+
+{
+  "name": "Updated Product Name",
+  "price": 34.99,
+  "description": "Updated product description",
+  "stock": 80
+}
+
+### Delete Product
+DELETE http://localhost:5000/api/admin/products/delete/6736cba45464586392ade64c
+Content-Type: application/json
+
+
+### Common features 
+
+### Get Feature Images
+GET http://localhost:5000/api/common/feature/get
+Content-Type: application/json
+
+### Add Feature Image
+POST http://localhost:5000/api/common/feature/add
+Content-Type: application/json
+
+{
+  "image": "your-image-url.jpg"
+}
+
+
+### User Interface
+
+
+### Fetch All Filtered Products
+GET http://localhost:5000/api/shop/products/get?category=applieness&priceRange=5-100&sortBy=popularity
+Content-Type: application/json
+
+
+### Fetch Product Details
+GET http://localhost:5000/api/shop/products/get/6731caebeaed1d906d2c76de
+Content-Type: application/json
+
+
+### Add to Cart
+POST http://localhost:5000/api/shop/cart/add
+Content-Type: application/json
+
+{
+  "userId": "6736b6d5ed3f185c4ebbef3f",
+  "productId": "6731caebeaed1d906d2c76de",
+  "quantity": 1
+}
+
+### Fetch Cart Items
+GET http://localhost:5000/api/shop/cart/get/6734796e184d76469d2b3d7e
+Content-Type: application/json
+
+
+### Delete Cart Item
+DELETE http://localhost:5000/api/shop/cart/6734796e184d76469d2b3d7e/6731caebeaed1d906d2c76de
+Content-Type: application/json
+
+### Update Cart Quantity
+PUT http://localhost:5000/api/shop/cart/update-cart
+Content-Type: application/json
+
+{
+  "userId": "6734796e184d76469d2b3d7e",
+  "productId": "6731caebeaed1d906d2c76de",
+  "quantity": 3
+}
+
+
+### Create New Order
+POST http://localhost:5000/api/shop/order/create
+Content-Type: application/json
+
+{
+  "userId": "6734796e184d76469d2b3d7e",
+  "products": [
+    { "productId": "6731caebeaed1d906d2c76de", "quantity": 2 }
+  ],
+  "totalAmount": 100,
+  "shippingAddress": "123 Test St, City, Country"
+}
+
+
+### Get All Orders by User ID
+GET http://localhost:5000/api/shop/order/list/6734796e184d76469d2b3d7e
+Content-Type: application/json
+
+### Get Order Details
+GET http://localhost:5000/api/shop/order/details/6736d4cf5464586392ade687
+Content-Type: application/json
+
+
+### Add New Address
+POST http://localhost:5000/api/shop/address/add
+Content-Type: application/json
+
+{
+  "userId": "67348a591f999d9dbac891d3",
+
+    "address": "kajsfdksaj",
+    "city": "Test City",
+    "pincode": "Test State",
+    "phone": "12345",
+    "notes": "Test Country"
+  
+}
+
+
+### Fetch All Addresses by User ID
+GET http://localhost:5000/api/shop/address/get/67348a591f999d9dbac891d3
+Content-Type: application/json
+
+
+### Edit Address
+PUT http://localhost:5000/api/shop/address/update/67348a591f999d9dbac891d3/6736e2fa5464586392ade6c3
+Content-Type: application/json
+
+{
+  "address": "kajsfdksaj",
+    "city": "Test",
+    "pincode": "Test",
+    "phone": "12345",
+    "notes": "Test Country"
+  
+}
+
+
+### Delete Address
+DELETE http://localhost:5000/api/shop/address/delete/67348a591f999d9dbac891d3/67348d2fd2426d77cdc4b5b3
+Content-Type: application/json
+
+
+####Search Item
+GET http://localhost:5000/api/shop/search/LCD
+

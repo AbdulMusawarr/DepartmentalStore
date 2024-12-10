@@ -170,7 +170,10 @@ const authMiddleware = async (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET || "default_secret_key");
-    req.user = decoded; // Attach user information to the request object
+    req.user = decoded;
+    res.message = "Authorized User",
+    
+     // Attach user information to the request object
     next(); // Proceed to the next middleware or route handler
   } catch (error) {
     // console.error("Authorization error:", error);
